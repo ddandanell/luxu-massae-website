@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Play, Star, MapPin, Clock, Users, MessageCircle, Phone, CheckCircle } from 'lucide-react';
+import { Star, MapPin, Clock, Users, MessageCircle, Phone, CheckCircle } from 'lucide-react';
 import WhatsAppBookingModal from './WhatsAppBookingModal';
 import TrustBadges from './TrustBadges';
+import massageHeroImage from '../assets/massage-therapy-hero.jpg';
 
 export default function EnhancedHero() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const stats = [
     { icon: Users, number: '500+', label: 'Happy Clients' },
@@ -124,39 +124,16 @@ export default function EnhancedHero() {
           {/* Right Column - Visual */}
           <div className="relative">
             <div className="relative bg-gradient-to-br from-amber-100 to-emerald-100 rounded-3xl p-8 shadow-2xl">
-              {/* Main Image Placeholder */}
+              {/* Main Massage Therapy Image */}
               <div className="aspect-[4/5] bg-white rounded-2xl shadow-lg overflow-hidden relative">
-                {!isVideoPlaying ? (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-br from-amber-200 via-white to-emerald-200"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
-                          <Play className="h-8 w-8 text-amber-600 ml-1" />
-                        </div>
-                        <p className="text-gray-700 font-medium">Watch Our Services</p>
-                        <Button 
-                          variant="ghost" 
-                          className="mt-2"
-                          onClick={() => setIsVideoPlaying(true)}
-                        >
-                          Play Video
-                        </Button>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
-                    <p className="text-white">Video would play here</p>
-                    <Button 
-                      variant="ghost" 
-                      className="absolute top-4 right-4 text-white"
-                      onClick={() => setIsVideoPlaying(false)}
-                    >
-                      Close
-                    </Button>
-                  </div>
-                )}
+                <img 
+                  src={massageHeroImage}
+                  alt="Professional Balinese massage therapy session in a peaceful setting"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                {/* Subtle overlay for visual enhancement */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
               </div>
 
               {/* Floating Elements */}

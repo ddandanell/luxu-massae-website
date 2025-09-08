@@ -16,7 +16,6 @@ import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp, { FloatingWhatsAppDesktop } from "@/components/FloatingWhatsApp";
 import SchemaMarkup from "@/components/SchemaMarkup";
 
 export default function Home() {
@@ -81,10 +80,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Floating Elements */}
-      <FloatingWhatsApp />
-      <FloatingWhatsAppDesktop />
     </div>
   );
 }
