@@ -1,104 +1,64 @@
 import { Instagram, Facebook } from "lucide-react";
+import { Link } from "wouter";
 
 const footerSections = [
   {
-    title: 'Services',
+    title: 'Our Services',
     links: [
-      'Bali Massage',
-      'Aroma Therapy',
-      'Deep Tissue Reset',
-      'Hot Stone Ritual',
-      'Thai Massage'
+      { name: 'Traditional Balinese', href: '/services' },
+      { name: 'Deep Tissue', href: '/services' },
+      { name: 'Aromatherapy', href: '/services' },
+      { name: 'Four Hands', href: '/services' },
+      { name: 'Thai Massage', href: '/services' }
     ]
   },
   {
     title: 'Company',
     links: [
-      'About Home Massage Ubud',
-      'Our Therapists',
+      { name: 'About Us', href: '/about' },
+      { name: 'Our Team', href: '/about' },
+      { name: 'Testimonials', href: '/testimonials' },
+      { name: 'Blog', href: '/blog' }
     ]
   },
   {
-    title: 'Pages',
+    title: 'Booking',
     links: [
-      'Villa Partnerships',
-      'Sustainability',
-      'Blog'
+      { name: 'Pricing', href: '/pricing' },
+      { name: 'Service Areas', href: '/contact' },
+      { name: 'Contact Us', href: '/contact' },
+      { name: 'WhatsApp Book', href: 'https://wa.me/6281126568690', external: true }
     ]
   },
   {
     title: 'Support',
     links: [
-      'FAQ',
-      'Booking Policy',
-      'Contact Us',
-      'Reviews',
+      { name: 'FAQ', href: '/#faq' },
+      { name: 'Booking Policy', href: '/blog' },
+      { name: 'Reviews', href: '/testimonials' },
+      { name: 'Villa Partnerships', href: '/villa-partnerships' }
     ]
   }
 ];
 
 export default function Footer() {
-  const scrollToServices = () => {
-    const element = document.getElementById('services');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-
-  const scrollToTherapists = () => {
-    const element = document.getElementById('therapists');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-
-  const scrollToFAQ = () => {
-    const element = document.getElementById('faq');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleLinkClick = (sectionTitle: string, linkText: string) => {
-    if (sectionTitle === 'Services') {
-      scrollToServices();
-    } else if (sectionTitle === 'Support') {
-      if (linkText === 'Contact Us') {
-        scrollToContact();
-      } else if (linkText === 'FAQ') {
-        scrollToFAQ();
-      }
-    } else if (sectionTitle === 'Company') {
-      if (linkText === 'About Home Massage Ubud') {
-        scrollToAbout();
-      } else if (linkText === 'Our Therapists') {
-        scrollToTherapists();
-      }
-    } else if (sectionTitle === 'Pages') {
-      if (linkText === 'Villa Partnerships') {
-        window.location.href = '/villa-partnerships';
-      } else if (linkText === 'Sustainability') {
-        window.location.href = '/sustainability';
-      } else if (linkText === 'Blog') {
-        window.location.href = '/blog';
+  const handleScrollToSection = (href: string) => {
+    if (href.startsWith('/#')) {
+      const elementId = href.substring(2);
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const handleLinkClick = (link: any) => {
+    if (link.external) {
+      window.open(link.href, '_blank');
+    } else if (link.href.startsWith('/#')) {
+      handleScrollToSection(link.href);
+    }
+    // Regular navigation links will be handled by Link component
   };
 
   return (
@@ -139,13 +99,29 @@ export default function Footer() {
               <ul className="space-y-1 md:space-y-2 text-muted-foreground">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <button 
-                      onClick={() => handleLinkClick(section.title, link)}
-                      className="hover:text-primary transition-colors text-left text-sm md:text-base"
-                      data-testid={`footer-link-${sectionIndex}-${linkIndex}`}
-                    >
-                      {link}
-                    </button>
+                    {link.external ? (
+                      <button 
+                        onClick={() => handleLinkClick(link)}
+                        className="hover:text-primary transition-colors text-left text-sm md:text-base"
+                        data-testid={`footer-link-${sectionIndex}-${linkIndex}`}
+                      >
+                        {link.name}
+                      </button>
+                    ) : link.href.startsWith('/#') ? (
+                      <button 
+                        onClick={() => handleLinkClick(link)}
+                        className="hover:text-primary transition-colors text-left text-sm md:text-base"
+                        data-testid={`footer-link-${sectionIndex}-${linkIndex}`}
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link href={link.href}>
+                        <span className="hover:text-primary transition-colors text-sm md:text-base">
+                          {link.name}
+                        </span>
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, Clock, User, ArrowRight, Heart, Leaf, Zap } from 'lucide-react';
 import SchemaMarkup from '../components/SchemaMarkup';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const blogPosts = [
   {
@@ -98,22 +100,24 @@ export default function BlogNew() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-emerald-50">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-emerald-50">
       <SchemaMarkup type="organization" data={blogSchema} />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          <Badge className="mb-4 bg-amber-100 text-amber-800">
+          <Badge className="mb-4 bg-amber-100 text-amber-800 text-xs sm:text-sm">
             Wellness & Healing Insights
           </Badge>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Massage & Wellness
             <span className="text-amber-600"> Knowledge Hub</span>
           </h1>
           
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto">
             Expert insights on therapeutic massage, traditional Balinese healing, 
             and wellness practices to enhance your understanding and experience 
             of holistic health in Ubud.
@@ -121,50 +125,50 @@ export default function BlogNew() {
         </div>
       </section>
 
-      {/* Featured Posts */}
+      {/* Featured Posts - Mobile Optimized */}
       {featuredPosts.length > 0 && (
-        <section className="py-12 px-4">
+        <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured Articles</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">Featured Articles</h2>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {featuredPosts.map((post) => (
                 <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="aspect-[16/9] bg-gradient-to-br from-amber-100 to-emerald-100"></div>
                   
-                  <CardHeader>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
-                      <Badge variant="secondary">{post.category}</Badge>
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 mb-3">
+                      <Badge variant="secondary" className="text-xs">{post.category}</Badge>
                       <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
+                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                         {new Date(post.date).toLocaleDateString()}
                       </div>
                       <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
+                        <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                         {post.readTime}
                       </div>
                     </div>
                     
-                    <CardTitle className="text-xl leading-tight hover:text-amber-600 transition-colors">
+                    <CardTitle className="text-lg sm:text-xl leading-tight hover:text-amber-600 transition-colors">
                       {post.title}
                     </CardTitle>
                   </CardHeader>
                   
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <p className="text-gray-600 mb-4 text-sm sm:text-base">{post.excerpt}</p>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <User className="h-4 w-4 text-gray-400" />
+                        <User className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400" />
                         <div>
-                          <p className="text-sm font-medium">{post.author}</p>
+                          <p className="text-xs sm:text-sm font-medium">{post.author}</p>
                           <p className="text-xs text-gray-500">{post.authorTitle}</p>
                         </div>
                       </div>
                       
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" className="text-xs sm:text-sm">
                         Read More
-                        <ArrowRight className="ml-1 h-4 w-4" />
+                        <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
                     </div>
                   </CardContent>
@@ -175,18 +179,18 @@ export default function BlogNew() {
         </section>
       )}
 
-      {/* All Posts */}
-      <section className="py-12 px-4 bg-white">
+      {/* All Posts - Mobile Optimized */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">All Articles</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">All Articles</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {regularPosts.map((post) => (
               <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow h-full">
                 <div className="aspect-[16/10] bg-gradient-to-br from-amber-100 to-emerald-100"></div>
                 
-                <CardHeader className="pb-2">
-                  <div className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
+                <CardHeader className="p-3 sm:p-4 lg:p-6 pb-2">
+                  <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-500 mb-2">
                     <Badge variant="outline" className="text-xs">{post.category}</Badge>
                     <div className="flex items-center">
                       <Clock className="h-3 w-3 mr-1" />
@@ -194,16 +198,16 @@ export default function BlogNew() {
                     </div>
                   </div>
                   
-                  <CardTitle className="text-lg leading-tight hover:text-amber-600 transition-colors">
+                  <CardTitle className="text-sm sm:text-base lg:text-lg leading-tight hover:text-amber-600 transition-colors">
                     {post.title}
                   </CardTitle>
                 </CardHeader>
                 
-                <CardContent className="flex flex-col justify-between h-full">
+                <CardContent className="p-3 sm:p-4 lg:p-6 pt-0 flex flex-col justify-between h-full">
                   <div>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
+                    <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-3">{post.excerpt}</p>
                     
-                    <div className="flex flex-wrap gap-1 mb-4">
+                    <div className="flex flex-wrap gap-1 mb-3 sm:mb-4">
                       {post.tags.slice(0, 2).map((tag, index) => (
                         <Badge key={index} variant="outline" className="text-xs">
                           {tag}
@@ -212,12 +216,12 @@ export default function BlogNew() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between pt-4 border-t">
+                  <div className="flex items-center justify-between pt-3 sm:pt-4 border-t">
                     <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center">
-                        <User className="h-3 w-3 text-amber-600" />
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-amber-100 rounded-full flex items-center justify-center">
+                        <User className="h-2 w-2 sm:h-3 sm:w-3 text-amber-600" />
                       </div>
-                      <span className="text-xs text-gray-600">{post.author}</span>
+                      <span className="text-xs text-gray-600 truncate">{post.author}</span>
                     </div>
                     
                     <Button variant="ghost" size="sm" className="text-xs">
@@ -232,34 +236,34 @@ export default function BlogNew() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 px-4">
+      {/* CTA Section - Mobile Optimized */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <Card className="border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50">
-            <CardContent className="p-8">
-              <div className="flex justify-center space-x-4 mb-6">
-                <div className="p-3 bg-amber-100 rounded-full">
-                  <Heart className="h-6 w-6 text-amber-600" />
+            <CardContent className="p-4 sm:p-6 lg:p-8">
+              <div className="flex justify-center space-x-2 sm:space-x-4 mb-4 sm:mb-6">
+                <div className="p-2 sm:p-3 bg-amber-100 rounded-full">
+                  <Heart className="h-4 w-4 sm:h-6 sm:w-6 text-amber-600" />
                 </div>
-                <div className="p-3 bg-emerald-100 rounded-full">
-                  <Leaf className="h-6 w-6 text-emerald-600" />
+                <div className="p-2 sm:p-3 bg-emerald-100 rounded-full">
+                  <Leaf className="h-4 w-4 sm:h-6 sm:w-6 text-emerald-600" />
                 </div>
-                <div className="p-3 bg-blue-100 rounded-full">
-                  <Zap className="h-6 w-6 text-blue-600" />
+                <div className="p-2 sm:p-3 bg-blue-100 rounded-full">
+                  <Zap className="h-4 w-4 sm:h-6 sm:w-6 text-blue-600" />
                 </div>
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Ready to Experience These Treatments?
               </h3>
-              <p className="text-gray-600 mb-8">
+              <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
                 Transform your knowledge into wellness experience. Book your personalized 
                 massage treatment and discover the healing power of traditional Balinese 
                 therapy in your private Ubud accommodation.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 w-full sm:w-auto px-4 sm:px-6 py-3 text-sm sm:text-base">
                   Book Treatment Now
                 </Button>
                 
@@ -267,8 +271,9 @@ export default function BlogNew() {
                   href="https://wa.me/6281126568690" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
                 >
-                  <Button size="lg" variant="outline">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto px-4 sm:px-6 py-3 text-sm sm:text-base">
                     Ask Our Experts
                   </Button>
                 </a>
@@ -278,5 +283,8 @@ export default function BlogNew() {
         </div>
       </section>
     </div>
+    
+    <Footer />
+  </>
   );
 }

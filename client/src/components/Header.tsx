@@ -22,12 +22,10 @@ export default function Header() {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'About', href: '/about' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Services', href: '#services' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'About', href: '#about' },
+    { name: 'Book Now', href: '#book', primary: true }
   ];
 
   return (
@@ -38,55 +36,66 @@ export default function Header() {
           : 'bg-white/90 backdrop-blur-sm'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+          <div className="flex items-center justify-between h-14">
+            {/* Logo - Smaller and Mobile Optimized */}
             <Link href="/">
-              <div className="flex items-center space-x-2">
-                <svg className="h-8 w-8 text-amber-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex items-center space-x-1.5">
+                <svg className="h-6 w-6 text-amber-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" fill="currentColor"/>
                   <circle cx="12" cy="8" r="2" fill="white"/>
                 </svg>
-                <div className="font-bold text-xl text-gray-900">
-                  Home Massage <span className="text-amber-600">Ubud</span>
+                <div className="font-bold text-lg sm:text-xl text-gray-900">
+                  <span className="hidden sm:inline">Home Massage </span>
+                  <span className="text-amber-600">Ubud</span>
                 </div>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              {navigation.map((item) => (
-                <Link key={item.name} href={item.href}>
-                  <span className={`text-sm font-medium transition-colors hover:text-amber-600 ${
-                    location === item.href ? 'text-amber-600' : 'text-gray-700'
-                  }`}>
-                    {item.name}
-                  </span>
-                </Link>
-              ))}
+            <nav className="hidden md:flex items-center space-x-6">
+              {navigation.map((item) => {
+                if (item.primary) {
+                  return (
+                    <Button 
+                      key={item.name}
+                      onClick={() => setIsBookingModalOpen(true)}
+                      className="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 text-sm"
+                    >
+                      {item.name}
+                    </Button>
+                  );
+                }
+                
+                if (item.href.startsWith('#')) {
+                  return (
+                    <button
+                      key={item.name}
+                      onClick={() => {
+                        const element = document.querySelector(item.href);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className={`text-sm font-medium transition-colors hover:text-amber-600 ${
+                        location === item.href ? 'text-amber-600' : 'text-gray-700'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                }
+                
+                return (
+                  <Link key={item.name} href={item.href}>
+                    <span className={`text-sm font-medium transition-colors hover:text-amber-600 ${
+                      location === item.href ? 'text-amber-600' : 'text-gray-700'
+                    }`}>
+                      {item.name}
+                    </span>
+                  </Link>
+                );
+              })}
             </nav>
-
-            {/* Desktop CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-3">
-              <a href="tel:+6281126568690" className="text-gray-600 hover:text-amber-600 transition-colors">
-                <Phone className="h-5 w-5" />
-              </a>
-              
-              <a 
-                href="https://wa.me/6281126568690" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-green-600 hover:text-green-700 transition-colors"
-              >
-                <MessageCircle className="h-5 w-5" />
-              </a>
-              
-              <Button 
-                onClick={() => setIsBookingModalOpen(true)}
-                className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2"
-              >
-                Book Now
-              </Button>
-            </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
@@ -94,8 +103,9 @@ export default function Header() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-1"
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
           </div>
@@ -103,49 +113,75 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-            <div className="px-4 py-4 space-y-3">
-              {navigation.map((item) => (
-                <Link key={item.name} href={item.href}>
-                  <span 
-                    className={`block px-3 py-2 text-base font-medium transition-colors hover:text-amber-600 ${
-                      location === item.href ? 'text-amber-600 bg-amber-50' : 'text-gray-700'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </span>
-                </Link>
-              ))}
+          <div className="md:hidden bg-white border-t border-gray-100 shadow-lg animate-in slide-in-from-top-5 duration-200">
+            <div className="px-4 py-3 space-y-1">
+              {navigation.map((item) => {
+                if (item.primary) {
+                  return (
+                    <Button
+                      key={item.name}
+                      onClick={() => {
+                        setIsBookingModalOpen(true);
+                        setIsMenuOpen(false);
+                      }}
+                      className="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 text-sm font-medium"
+                    >
+                      {item.name}
+                    </Button>
+                  );
+                }
+                
+                if (item.href.startsWith('#')) {
+                  return (
+                    <button
+                      key={item.name}
+                      onClick={() => {
+                        const element = document.querySelector(item.href);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        setIsMenuOpen(false);
+                      }}
+                      className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors"
+                    >
+                      {item.name}
+                    </button>
+                  );
+                }
+                
+                return (
+                  <Link key={item.name} href={item.href}>
+                    <span 
+                      className={`block px-3 py-2 text-base font-medium transition-colors hover:text-amber-600 rounded-md ${
+                        location === item.href ? 'text-amber-600 bg-amber-50' : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </span>
+                  </Link>
+                );
+              })}
               
-              <div className="border-t pt-4 mt-4">
-                <div className="flex items-center space-x-4 px-3 py-2">
-                  <a href="tel:+6281126568690" className="flex items-center text-gray-600">
+              <div className="border-t pt-3 mt-3">
+                <div className="flex items-center justify-center space-x-6 px-3 py-2">
+                  <a 
+                    href="tel:+6281126568690" 
+                    className="flex items-center text-gray-600 hover:text-amber-600 transition-colors"
+                  >
                     <Phone className="h-4 w-4 mr-2" />
-                    <span className="text-sm">Call Us</span>
+                    <span className="text-sm">Call</span>
                   </a>
                   
                   <a 
                     href="https://wa.me/6281126568690" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-green-600"
+                    className="flex items-center text-green-600 hover:text-green-700 transition-colors"
                   >
                     <MessageCircle className="h-4 w-4 mr-2" />
                     <span className="text-sm">WhatsApp</span>
                   </a>
-                </div>
-                
-                <div className="px-3 py-2">
-                  <Button 
-                    onClick={() => {
-                      setIsBookingModalOpen(true);
-                      setIsMenuOpen(false);
-                    }}
-                    className="w-full bg-amber-600 hover:bg-amber-700"
-                  >
-                    Book Treatment
-                  </Button>
                 </div>
               </div>
             </div>

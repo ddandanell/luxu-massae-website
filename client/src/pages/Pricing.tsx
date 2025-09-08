@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Check, Star, Users, Clock, MapPin, Shield, Award, Heart, MessageCircle, Phone } from 'lucide-react';
 import WhatsAppBookingModal from '@/components/WhatsAppBookingModal';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import SchemaMarkup from '@/components/SchemaMarkup';
 
 const massageTypes = [
   {
@@ -113,99 +116,101 @@ export default function Pricing() {
   const [isBookingModalOpen, setIsBookingModalOpen] = React.useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-emerald-50">
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-emerald-50">
+        {/* Hero Section - Mobile Optimized */}
+        <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          <Badge className="mb-4 bg-amber-100 text-amber-800">
+          <Badge className="mb-4 bg-amber-100 text-amber-800 text-xs sm:text-sm">
             Transparent Pricing
           </Badge>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Professional Massage Services
             <span className="text-amber-600"> at Your Villa</span>
           </h1>
           
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto">
             Premium therapeutic treatments delivered to your accommodation. 
             All prices include transportation, setup, and professional equipment.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
             <div className="flex items-center text-emerald-600">
-              <Shield className="h-5 w-5 mr-2" />
-              <span className="text-sm font-medium">Licensed Therapists</span>
+              <Shield className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+              <span className="text-xs sm:text-sm font-medium">Licensed Therapists</span>
             </div>
             <div className="flex items-center text-emerald-600">
-              <Award className="h-5 w-5 mr-2" />
-              <span className="text-sm font-medium">Premium Equipment</span>
+              <Award className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+              <span className="text-xs sm:text-sm font-medium">Premium Equipment</span>
             </div>
             <div className="flex items-center text-emerald-600">
-              <MapPin className="h-5 w-5 mr-2" />
-              <span className="text-sm font-medium">Service Area Coverage</span>
+              <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+              <span className="text-xs sm:text-sm font-medium">Service Area Coverage</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Individual Massage Services */}
-      <section className="py-12 px-4">
+      {/* Individual Massage Services - Mobile Optimized */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
               Individual Massage Treatments
             </h2>
-            <p className="text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               Choose from our range of therapeutic massage services
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {massageTypes.map((massage, index) => (
               <Card key={index} className={`relative ${massage.popular ? 'ring-2 ring-amber-500' : ''}`}>
                 {massage.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white">
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-xs">
                     <Star className="h-3 w-3 mr-1" />
                     Most Popular
                   </Badge>
                 )}
                 
-                <CardHeader>
-                  <CardTitle className="text-lg">{massage.name}</CardTitle>
-                  <p className="text-sm text-gray-600">{massage.description}</p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Clock className="h-4 w-4 mr-1" />
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-base sm:text-lg">{massage.name}</CardTitle>
+                  <p className="text-xs sm:text-sm text-gray-600">{massage.description}</p>
+                  <div className="flex items-center text-xs sm:text-sm text-gray-500">
+                    <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                     {massage.duration}
                   </div>
                 </CardHeader>
                 
                 <CardContent>
-                  <div className="mb-6">
+                  <div className="mb-4 sm:mb-6">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-gray-600">Single Person</span>
-                      <span className="text-lg font-bold text-amber-600">
+                      <span className="text-xs sm:text-sm text-gray-600">Single Person</span>
+                      <span className="text-base sm:text-lg font-bold text-amber-600">
                         {formatPrice(massage.price.single)}
                       </span>
                     </div>
                     
                     {massage.price.couple && (
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600 flex items-center">
+                        <span className="text-xs sm:text-sm text-gray-600 flex items-center">
                           <Users className="h-3 w-3 mr-1" />
                           Couple
                         </span>
-                        <span className="text-lg font-bold text-amber-600">
+                        <span className="text-base sm:text-lg font-bold text-amber-600">
                           {formatPrice(massage.price.couple)}
                         </span>
                       </div>
                     )}
                   </div>
                   
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Benefits:</h4>
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">Benefits:</h4>
                     <ul className="space-y-1">
                       {massage.benefits.map((benefit, i) => (
-                        <li key={i} className="text-sm text-gray-600 flex items-center">
+                        <li key={i} className="text-xs sm:text-sm text-gray-600 flex items-center">
                           <Check className="h-3 w-3 mr-2 text-emerald-600" />
                           {benefit}
                         </li>
@@ -214,7 +219,7 @@ export default function Pricing() {
                   </div>
                   
                   <Button 
-                    className="w-full bg-amber-600 hover:bg-amber-700"
+                    className="w-full bg-amber-600 hover:bg-amber-700 text-sm py-2"
                     onClick={() => setIsBookingModalOpen(true)}
                   >
                     Book This Treatment
@@ -226,46 +231,46 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Special Packages */}
-      <section className="py-12 px-4 bg-white">
+      {/* Special Packages - Mobile Optimized */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
               Special Wellness Packages
             </h2>
-            <p className="text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               Complete experiences for ultimate relaxation and wellness
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`${pkg.popular ? 'ring-2 ring-amber-500' : ''}`}>
+              <Card key={index} className={`relative ${pkg.popular ? 'ring-2 ring-amber-500' : ''}`}>
                 {pkg.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white">
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-xs">
                     <Heart className="h-3 w-3 mr-1" />
                     Couples Favorite
                   </Badge>
                 )}
                 
-                <CardHeader>
-                  <CardTitle className="text-lg">{pkg.name}</CardTitle>
-                  <p className="text-sm text-gray-600">{pkg.description}</p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Clock className="h-4 w-4 mr-1" />
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-base sm:text-lg">{pkg.name}</CardTitle>
+                  <p className="text-xs sm:text-sm text-gray-600">{pkg.description}</p>
+                  <div className="flex items-center text-xs sm:text-sm text-gray-500">
+                    <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                     {pkg.duration}
                   </div>
-                  <div className="text-2xl font-bold text-amber-600">
+                  <div className="text-xl sm:text-2xl font-bold text-amber-600">
                     {formatPrice(pkg.price)}
                   </div>
                 </CardHeader>
                 
                 <CardContent>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Package Includes:</h4>
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">Package Includes:</h4>
                     <ul className="space-y-1">
                       {pkg.includes.map((item, i) => (
-                        <li key={i} className="text-sm text-gray-600 flex items-center">
+                        <li key={i} className="text-xs sm:text-sm text-gray-600 flex items-center">
                           <Check className="h-3 w-3 mr-2 text-emerald-600" />
                           {item}
                         </li>
@@ -274,7 +279,7 @@ export default function Pricing() {
                   </div>
                   
                   <Button 
-                    className="w-full bg-amber-600 hover:bg-amber-700"
+                    className="w-full bg-amber-600 hover:bg-amber-700 text-sm py-2"
                     onClick={() => setIsBookingModalOpen(true)}
                   >
                     Book This Package
@@ -286,53 +291,53 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Pricing Guarantees */}
-      <section className="py-12 px-4">
+      {/* Pricing Guarantees - Mobile Optimized */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <Card className="border-emerald-200 bg-emerald-50">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
                 Our Pricing Promise
               </h3>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex items-start space-x-3">
-                  <Check className="h-5 w-5 text-emerald-600 mt-1" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Transparent Pricing</h4>
-                    <p className="text-sm text-gray-600">No hidden fees. What you see is what you pay.</p>
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Transparent Pricing</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">No hidden fees. What you see is what you pay.</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-3">
-                  <Check className="h-5 w-5 text-emerald-600 mt-1" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Free Consultation</h4>
-                    <p className="text-sm text-gray-600">Complimentary health assessment with every booking.</p>
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Free Consultation</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Complimentary health assessment with every booking.</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-3">
-                  <Check className="h-5 w-5 text-emerald-600 mt-1" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Equipment Included</h4>
-                    <p className="text-sm text-gray-600">Massage table, oils, towels - all provided.</p>
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Equipment Included</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Massage table, oils, towels - all provided.</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-3">
-                  <Check className="h-5 w-5 text-emerald-600 mt-1" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Satisfaction Guaranteed</h4>
-                    <p className="text-sm text-gray-600">100% satisfaction or we'll make it right.</p>
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Satisfaction Guaranteed</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">100% satisfaction or we'll make it right.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="text-center mt-8">
+              <div className="text-center mt-6 sm:mt-8">
                 <Button 
                   size="lg" 
-                  className="bg-emerald-600 hover:bg-emerald-700"
+                  className="bg-emerald-600 hover:bg-emerald-700 w-full sm:w-auto px-6 py-3 text-sm sm:text-base"
                   onClick={() => setIsBookingModalOpen(true)}
                 >
                   Book Your Treatment Now
@@ -343,31 +348,32 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-12 px-4 bg-white">
+      {/* Contact Section - Mobile Optimized */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             Questions About Pricing?
           </h3>
-          <p className="text-gray-600 mb-8">
+          <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
             Our wellness consultants are here to help you choose the perfect treatment for your needs and budget.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a 
               href="https://wa.me/6281126568690" 
               target="_blank" 
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                <MessageCircle className="mr-2 h-5 w-5" />
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 w-full sm:w-auto px-4 sm:px-6 py-3 text-sm sm:text-base">
+                <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 WhatsApp Consultation
               </Button>
             </a>
             
-            <a href="tel:+6281126568690">
-              <Button size="lg" variant="outline">
-                <Phone className="mr-2 h-5 w-5" />
+            <a href="tel:+6281126568690" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto px-4 sm:px-6 py-3 text-sm sm:text-base">
+                <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Call for Quote
               </Button>
             </a>
@@ -380,5 +386,21 @@ export default function Pricing() {
         onClose={() => setIsBookingModalOpen(false)} 
       />
     </div>
+    
+    <Footer />
+    
+    <SchemaMarkup 
+      type="service"
+      data={{
+        name: "Home Massage Ubud - Professional Pricing",
+        description: "Transparent pricing for professional mobile massage services in Ubud, Bali. Quality treatments at fair prices.",
+        provider: {
+          name: "Home Massage Ubud",
+          telephone: "+62-811-2656-8690"
+        },
+        areaServed: "Ubud, Bali"
+      }}
+    />
+  </>
   );
 }

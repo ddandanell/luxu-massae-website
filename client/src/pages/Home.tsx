@@ -52,7 +52,9 @@ export default function Home() {
       
       <main>
         {/* Enhanced Hero Section */}
-        <EnhancedHero />
+        <section id="home">
+          <EnhancedHero />
+        </section>
         
         {/* Trust Badges */}
         <section className="py-8 bg-white">
@@ -62,16 +64,26 @@ export default function Home() {
         </section>
         
         {/* Main Content Sections */}
-        <Services />
+        <section id="services">
+          <Services />
+        </section>
         <HealthBenefits />
-        <About />
-        <BookingProcess />
+        <section id="about">
+          <About />
+        </section>
+        <section id="book">
+          <BookingProcess />
+        </section>
         <WhatToExpect />
         <SafetyHygiene />
         <Therapists />
         <Testimonials />
-        <Pricing />
-        <FAQ />
+        <section id="pricing">
+          <Pricing />
+        </section>
+        <section id="faq">
+          <FAQ />
+        </section>
         <ServiceAreas />
         <UbudAreas />
         <SEOContent />
