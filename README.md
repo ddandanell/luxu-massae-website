@@ -49,11 +49,34 @@ A modern, responsive website for premium massage services in Ubud, Bali.
    ```
    Server will start on http://localhost:5173 (or next available port)
 
-4. **Build for production**
+4. **Build for production (Static)**
    ```bash
    npm run build
-   npm start
+   npm run preview
    ```
+
+5. **Run full-stack development (with backend)**
+   ```bash
+   npm run server:dev
+   ```
+
+## Deployment
+
+### Static Deployment (Recommended for Vercel)
+This project is optimized for static deployment on Vercel, Netlify, etc.
+
+1. Push to GitHub
+2. Import into Vercel
+3. Choose "Vite" preset
+4. Deploy automatically
+
+### Full-Stack Deployment (Optional)
+If you need the backend API:
+
+```bash
+npm run server:build
+npm run server:start
+```
 
 ## Project Structure
 
