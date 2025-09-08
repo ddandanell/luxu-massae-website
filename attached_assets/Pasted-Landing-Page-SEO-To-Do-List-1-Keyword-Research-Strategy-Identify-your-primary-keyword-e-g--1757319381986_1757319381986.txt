@@ -1,0 +1,96 @@
+Landing Page SEO To-Do List
+
+1. Keyword Research & Strategy
+	•	Identify your primary keyword (e.g., “Massage Ubud” / “Villa Massage Ubud”).
+	•	Identify secondary keywords: “in-villa massage Ubud,” “home massage Ubud,” “Balinese massage in villa,” “massage at home Ubud,” “luxury massage Ubud.”
+	•	Map one keyword focus per section of the page (hero, services, about, areas, CTA).
+
+⸻
+
+2. Hero Section
+	•	Add a headline with the primary keyword (e.g., Luxury Massage in Ubud – Delivered to Your Villa).
+	•	Include a subheadline that mentions service hours (7 AM – 10 PM), villa/home service, and Ubud coverage.
+	•	Add a call-to-action button with keyword anchor (e.g., “Book Your Villa Massage in Ubud”).
+	•	Add background image or video that screams luxury Bali villa vibe.
+
+⸻
+
+3. About Section
+	•	Rewrite using the long “About Massage Ubud” SEO text we built.
+	•	Add internal headings (H2/H3) like:
+	•	“Professional In-Villa Massage in Ubud”
+	•	“Certified Balinese Therapists at Your Service”
+	•	Sprinkle secondary keywords naturally inside the text.
+
+⸻
+
+4. Services Section
+	•	List each service (Balinese Massage, Deep Tissue, Aroma Therapy, Hot Stone, etc.) with keyword-rich descriptions.
+	•	Use structured format: service name + description + duration + price.
+	•	Each service should contain keyword variants (“Balinese villa massage in Ubud,” “deep tissue massage at home in Ubud”).
+
+⸻
+
+5. Areas We Cover
+	•	Create individual mini-pages or sections for each Ubud area (Penestanan, Sayan, Nyuh Kuning, etc.).
+	•	Each ~200 words, optimized with “Massage in [Area Name], Ubud.”
+	•	Add internal links between these area pages and the main landing page.
+
+⸻
+
+6. Trust & Guarantees
+	•	Add the 25 trust-builder promises (money-back guarantee, on-time promise, eco-friendly, certified therapists).
+	•	Display them as icon boxes or badges for visual impact.
+	•	Include a “Why Choose Us” H2 with bullet points for quick readability.
+
+⸻
+
+7. Certifications & Credentials
+	•	Create a section titled: “Certified & Recognized Massage Therapists in Ubud.”
+	•	List certifications (VTCT, CIBTAC, BISA, Mandara Spa, etc.) to add authority.
+	•	Link to at least one reputable academy website for external credibility.
+
+⸻
+
+8. Testimonials / Social Proof
+	•	Add 3–5 client reviews with names (first name + country flag works well for villa guests).
+	•	Include keywords in reviews where possible (e.g., “best villa massage in Ubud”).
+	•	Consider video or WhatsApp screenshots for authenticity.
+
+⸻
+
+9. CTA (Call to Action)
+	•	Repeat booking CTAs throughout the page.
+	•	Example buttons:
+	•	“Book Your In-Villa Massage in Ubud Now”
+	•	“Relax at Home – Book Today”
+	•	Always link to WhatsApp (preferred in Bali) + booking form.
+
+⸻
+
+10. Technical SEO
+	•	Ensure page title: “Massage Ubud | Luxury In-Villa Massage & Spa Service” (under 60 chars).
+	•	Ensure meta description: “Massage Ubud offers certified therapists delivering luxury Balinese massage directly to your villa or home. Available 7 AM – 10 PM daily.” (under 160 chars).
+	•	Add alt-text to all images (use keywords like “Villa massage Ubud,” “Balinese home massage”).
+	•	Optimize page speed (compressed images, lazy loading).
+	•	Make page mobile-first (most bookings will come from phones).
+
+⸻
+
+11. Structured Data
+	•	Add schema markup for Local Business / Service with:
+	•	Business Name: Massage Ubud
+	•	Location: Ubud, Bali, Indonesia
+	•	Services: Balinese Massage, Villa Massage, Home Massage, etc.
+	•	Hours: 07:00–22:00
+
+⸻
+
+12. Ongoing SEO & Content
+	•	Start a blog with posts like:
+	•	“Best Massage Styles in Ubud Villas”
+	•	“Why Villa Massage Is Better Than Spa Visits in Ubud”
+	•	“Top 10 Retreat Areas in Ubud for Relaxation”
+	•	Each blog post should link back to the landing page for authority.
+
+⸻

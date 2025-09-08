@@ -1,0 +1,93 @@
+/* Fonts loaded via preload in HTML for better performance */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Home Massage Ubud Amber Theme Colors */
+  --background: hsl(32, 15%, 8%);
+  --foreground: hsl(32, 10%, 85%);
+  --card: hsl(32, 12%, 12%);
+  --card-foreground: hsl(32, 8%, 80%);
+  --popover: hsl(32, 12%, 12%);
+  --popover-foreground: hsl(32, 8%, 80%);
+  --primary: hsl(43, 96%, 56%);
+  --primary-foreground: hsl(32, 20%, 15%);
+  --secondary: hsl(32, 8%, 18%);
+  --secondary-foreground: hsl(32, 5%, 75%);
+  --muted: hsl(32, 8%, 22%);
+  --muted-foreground: hsl(32, 5%, 65%);
+  --accent: hsl(45, 100%, 51%);
+  --accent-foreground: hsl(32, 20%, 15%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(32, 8%, 25%);
+  --input: hsl(32, 8%, 20%);
+  --ring: hsl(43, 96%, 56%);
+  
+  /* Font families */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  /* Border radius */
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(32, 15%, 8%);
+  --foreground: hsl(32, 10%, 85%);
+  --card: hsl(32, 12%, 12%);
+  --card-foreground: hsl(32, 8%, 80%);
+  --popover: hsl(32, 12%, 12%);
+  --popover-foreground: hsl(32, 8%, 80%);
+  --primary: hsl(43, 96%, 56%);
+  --primary-foreground: hsl(32, 20%, 15%);
+  --secondary: hsl(32, 8%, 18%);
+  --secondary-foreground: hsl(32, 5%, 75%);
+  --muted: hsl(32, 8%, 22%);
+  --muted-foreground: hsl(32, 5%, 65%);
+  --accent: hsl(45, 100%, 51%);
+  --accent-foreground: hsl(32, 20%, 15%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(32, 8%, 25%);
+  --input: hsl(32, 8%, 20%);
+  --ring: hsl(43, 96%, 56%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  
+  .serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer components {
+  .golden-glow {
+    box-shadow: 0 0 30px hsla(43, 96%, 56%, 0.3);
+  }
+  
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+  
+  .gradient-overlay {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(45, 37, 32, 0.9) 100%);
+  }
+  
+  .amber-glow {
+    box-shadow: 0 0 30px hsla(43, 96%, 56%, 0.4);
+  }
+}
