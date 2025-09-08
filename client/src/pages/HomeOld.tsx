@@ -1,6 +1,8 @@
-import Header from "@/components/Header";
+import HeaderNew from "@/components/HeaderNew";
+import TopBanner from "@/components/TopBanner";
 import EnhancedHero from "@/components/EnhancedHero";
 import TrustBadges from "@/components/TrustBadges";
+import Guarantees from "@/components/Guarantees";
 import Services from "@/components/Services";
 import HealthBenefits from "@/components/HealthBenefits";
 import ServiceAreas from "@/components/ServiceAreas";
@@ -8,7 +10,7 @@ import SEOContent from "@/components/SEOContent";
 import UbudAreas from "@/components/UbudAreas";
 import About from "@/components/About";
 import BookingProcess from "@/components/BookingProcess";
-import WhatToExpect from "@/components/WhatToExpect";
+import WhatToExpected from "@/components/WhatToExpect";
 import SafetyHygiene from "@/components/SafetyHygiene";
 import Therapists from "@/components/Therapists";
 import Testimonials from "@/components/Testimonials";
@@ -20,21 +22,6 @@ import FloatingWhatsApp, { FloatingWhatsAppDesktop } from "@/components/Floating
 import SchemaMarkup from "@/components/SchemaMarkup";
 
 export default function Home() {
-  const faqData = [
-    {
-      question: "How do I book a massage in Ubud?",
-      answer: "Booking is simple! Contact us via WhatsApp at +62 811-2656-869, call directly, or email hello@homemassageubud.com. We recommend booking 24-48 hours in advance."
-    },
-    {
-      question: "What areas do you serve in Ubud?",
-      answer: "We provide in-villa massage services throughout Ubud center, Tegallalang, Sanggingan, Campuhan, Penestanan, and surrounding areas within a 15km radius."
-    },
-    {
-      question: "Are your therapists licensed and professional?",
-      answer: "Yes, all our massage therapists are licensed professionals with extensive training in therapeutic massage techniques. We maintain the highest standards of professionalism and ethics."
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       {/* SEO Schema Markup */}
@@ -43,13 +30,8 @@ export default function Home() {
         data={{}} 
       />
       
-      <SchemaMarkup 
-        type="faq" 
-        data={faqData} 
-      />
-      
       {/* Header */}
-      <Header />
+      <HeaderNew />
       
       <main>
         {/* Enhanced Hero Section */}
@@ -62,12 +44,12 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Main Content Sections */}
+        {/* Existing Components */}
         <Services />
         <HealthBenefits />
         <About />
         <BookingProcess />
-        <WhatToExpect />
+        <WhatToExpected />
         <SafetyHygiene />
         <Therapists />
         <Testimonials />
@@ -77,14 +59,31 @@ export default function Home() {
         <UbudAreas />
         <SEOContent />
         <Contact />
+        <Footer />
       </main>
-
-      {/* Footer */}
-      <Footer />
 
       {/* Floating Elements */}
       <FloatingWhatsApp />
       <FloatingWhatsAppDesktop />
+    </div>
+  );
+}
+        <HealthBenefits />
+        <About />
+        <BookingProcess />
+        <WhatToExpect />
+        <SafetyHygiene />
+        <Therapists />
+        <Testimonials />
+        <Pricing />
+        <ServiceAreas />
+        <FAQ />
+        <Contact />
+        <UbudAreas />
+        <SEOContent />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
