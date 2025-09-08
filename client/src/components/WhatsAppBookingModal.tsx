@@ -17,21 +17,13 @@ export default function WhatsAppBookingModal({ isOpen, onClose }: WhatsAppBookin
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    treatment: '',
+    people: '',
+    hours: '',
     date: '',
     time: '',
     villa: '',
     notes: ''
   });
-
-  const services = [
-    'Traditional Balinese Massage',
-    'Deep Tissue Massage', 
-    'Aromatherapy Massage',
-    'Lymphatic Drainage Massage',
-    'Thai Massage',
-    'Four Hands Massage'
-  ];
 
   const timeSlots = [
     '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
@@ -52,7 +44,8 @@ export default function WhatsAppBookingModal({ isOpen, onClose }: WhatsAppBookin
     message += `• Phone: ${formData.phone || 'Not provided'}\n`;
     message += `• Villa: ${formData.villa || 'Not provided'}\n\n`;
     
-    message += `💆‍♀️ *Treatment:* ${formData.treatment || 'Not specified'}\n\n`;
+    message += `� *Number of People:* ${formData.people || 'Not specified'}\n`;
+    message += `⏰ *Hours of Massage:* ${formData.hours || 'Not specified'}\n\n`;
     
     if (bookingType === 'asap') {
       message += `⚡ *BOOKING TYPE:* ASAP (Next Available)\n`;
@@ -93,7 +86,8 @@ export default function WhatsAppBookingModal({ isOpen, onClose }: WhatsAppBookin
     setFormData({
       name: '',
       phone: '',
-      treatment: '',
+      people: '',
+      hours: '',
       date: '',
       time: '',
       villa: '',
@@ -175,21 +169,42 @@ export default function WhatsAppBookingModal({ isOpen, onClose }: WhatsAppBookin
             />
           </div>
           
-          {/* Treatment Selection */}
+          {/* Booking Details */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Treatment</h3>
-            <Select value={formData.treatment} onValueChange={(value) => handleInputChange('treatment', value)}>
-              <SelectTrigger className="bg-input border-border" data-testid="modal-select-treatment">
-                <SelectValue placeholder="Choose your massage treatment" />
-              </SelectTrigger>
-              <SelectContent>
-                {services.map((service, index) => (
-                  <SelectItem key={index} value={service}>
-                    {service}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <h3 className="font-semibold text-foreground">Booking Details</h3>
+            
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <Select value={formData.people} onValueChange={(value) => handleInputChange('people', value)}>
+                  <SelectTrigger className="bg-input border-border" data-testid="modal-select-people">
+                    <SelectValue placeholder="Number of people" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1">1 person</SelectItem>
+                    <SelectItem value="2">2 people</SelectItem>
+                    <SelectItem value="3">3 people</SelectItem>
+                    <SelectItem value="4">4 people</SelectItem>
+                    <SelectItem value="5+">5+ people</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div>
+                <Select value={formData.hours} onValueChange={(value) => handleInputChange('hours', value)}>
+                  <SelectTrigger className="bg-input border-border" data-testid="modal-select-hours">
+                    <SelectValue placeholder="Hours of massage" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1">1 hour</SelectItem>
+                    <SelectItem value="1.5">1.5 hours</SelectItem>
+                    <SelectItem value="2">2 hours</SelectItem>
+                    <SelectItem value="2.5">2.5 hours</SelectItem>
+                    <SelectItem value="3">3 hours</SelectItem>
+                    <SelectItem value="3+">3+ hours</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
           </div>
           
           {/* Scheduling (only show if scheduled is selected) */}

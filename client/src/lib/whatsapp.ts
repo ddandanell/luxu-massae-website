@@ -3,6 +3,8 @@ export const WHATSAPP_NUMBER = "+62 811-2656-869";
 
 export interface BookingDetails {
   treatment?: string;
+  people?: string;
+  hours?: string;
   date?: string;
   time?: string;
   firstName?: string;
@@ -24,12 +26,20 @@ export function generateBookingMessage(details: BookingDetails): string {
     message += `💆‍♀️ *Treatment:* ${details.treatment}\n`;
   }
   
+  if (details.people) {
+    message += `👥 *Number of People:* ${details.people}\n`;
+  }
+  
+  if (details.hours) {
+    message += `⏰ *Hours of Massage:* ${details.hours}\n`;
+  }
+  
   if (details.date) {
     message += `📅 *Preferred Date:* ${details.date}\n`;
   }
   
   if (details.time) {
-    message += `⏰ *Preferred Time:* ${details.time}\n`;
+    message += `🕐 *Preferred Time:* ${details.time}\n`;
   }
   
   if (details.firstName || details.lastName) {

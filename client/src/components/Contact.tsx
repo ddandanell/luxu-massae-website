@@ -17,7 +17,8 @@ export default function Contact() {
     villa: '',
     date: '',
     time: '',
-    treatment: ''
+    people: '',
+    hours: ''
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -42,7 +43,8 @@ export default function Contact() {
 
     // Generate WhatsApp message and open
     const message = generateBookingMessage({
-      treatment: formData.treatment,
+      people: formData.people,
+      hours: formData.hours,
       date: formData.date,
       time: formData.time,
       firstName: formData.firstName,
@@ -67,7 +69,8 @@ export default function Contact() {
       villa: '',
       date: '',
       time: '',
-      treatment: ''
+      people: '',
+      hours: ''
     });
   };
 
@@ -196,26 +199,34 @@ export default function Contact() {
                   </Select>
                 </div>
                 
-                <Select value={formData.treatment} onValueChange={(value) => handleInputChange('treatment', value)}>
-                  <SelectTrigger className="bg-input border-border text-foreground" data-testid="select-treatment">
-                    <SelectValue placeholder="Select Treatment" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="bali-massage-60">Bali Massage (60 min) - Rp 300,000</SelectItem>
-                    <SelectItem value="bali-massage-90">Bali Massage (90 min) - Rp 450,000</SelectItem>
-                    <SelectItem value="aroma-therapy-60">Aroma Therapy Massage (60 min) - Rp 350,000</SelectItem>
-                    <SelectItem value="aroma-therapy-90">Aroma Therapy Massage (90 min) - Rp 500,000</SelectItem>
-                    <SelectItem value="deep-tissue-60">Deep Tissue Reset (60 min) - Rp 400,000</SelectItem>
-                    <SelectItem value="deep-tissue-90">Deep Tissue Reset (90 min) - Rp 600,000</SelectItem>
-                    <SelectItem value="lymphatic-drainage-60">Lymphatic Drainage (60 min) - Rp 500,000</SelectItem>
-                    <SelectItem value="lymphatic-drainage-90">Lymphatic Drainage (90 min) - Rp 700,000</SelectItem>
-                    <SelectItem value="hot-stone-60">Hot Stone Ritual (60 min) - Rp 500,000</SelectItem>
-                    <SelectItem value="hot-stone-90">Hot Stone Ritual (90 min) - Rp 700,000</SelectItem>
-                    <SelectItem value="thai-massage-60">Thai Massage (60 min) - Rp 400,000</SelectItem>
-                    <SelectItem value="thai-massage-90">Thai Massage (90 min) - Rp 600,000</SelectItem>
-                    <SelectItem value="bali-glow-90">Bali Glow (Massage + Scrub) (90 min) - Rp 600,000</SelectItem>
-                  </SelectContent>
-                </Select>
+                <div className="grid grid-cols-2 gap-3 md:gap-4">
+                  <Select value={formData.people} onValueChange={(value) => handleInputChange('people', value)}>
+                    <SelectTrigger className="bg-input border-border text-foreground" data-testid="select-people">
+                      <SelectValue placeholder="Number of people" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">1 person</SelectItem>
+                      <SelectItem value="2">2 people</SelectItem>
+                      <SelectItem value="3">3 people</SelectItem>
+                      <SelectItem value="4">4 people</SelectItem>
+                      <SelectItem value="5+">5+ people</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  
+                  <Select value={formData.hours} onValueChange={(value) => handleInputChange('hours', value)}>
+                    <SelectTrigger className="bg-input border-border text-foreground" data-testid="select-hours">
+                      <SelectValue placeholder="Hours of massage" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">1 hour</SelectItem>
+                      <SelectItem value="1.5">1.5 hours</SelectItem>
+                      <SelectItem value="2">2 hours</SelectItem>
+                      <SelectItem value="2.5">2.5 hours</SelectItem>
+                      <SelectItem value="3">3 hours</SelectItem>
+                      <SelectItem value="3+">3+ hours</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
                 
                 <Button 
                   type="submit" 
