@@ -130,14 +130,6 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-border mt-8 md:mt-12 pt-6 md:pt-8 text-center text-muted-foreground">
-          <div className="footer-partners mb-6">
-            <h4 className="font-semibold text-primary mb-2">Trusted Massage Partners</h4>
-            <p className="text-sm">
-              Discover our sister sites:
-              <a href="https://homemassagekuta.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mx-1">Home Massage Kuta</a> &
-              <a href="https://homemassageubud.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mx-1">Home Massage Ubud</a>
-            </p>
-          </div>
           <p className="text-xs md:text-sm" data-testid="footer-copyright">
             &copy; 2024 Home Massage Ubud | homemassageubud.com | Licensed Spa Services Ubud, Bali
           </p>
