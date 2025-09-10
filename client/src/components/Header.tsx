@@ -10,7 +10,6 @@ export default function Header() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll for sticky header
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
@@ -37,21 +36,22 @@ export default function Header() {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
-            {/* Logo - Smaller and Mobile Optimized */}
             <Link href="/">
               <div className="flex items-center space-x-1.5">
                 <svg className="h-6 w-6 text-amber-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" fill="currentColor"/>
                   <circle cx="12" cy="8" r="2" fill="white"/>
                 </svg>
-                <div className="font-bold text-lg sm:text-xl text-gray-900">
-                  <span className="hidden sm:inline">Home Massage </span>
-                  <span className="text-amber-600">Ubud</span>
+                <div className="font-bold text-lg sm:text-xl">
+                  <span className="hidden sm:inline text-gray-900">Home Massage </span>
+                  <span className="text-black md:text-amber-600">
+                    <span className="sm:hidden">HomeMassage</span>
+                    <span className="hidden sm:inline">Ubud</span>
+                  </span>
                 </div>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
               {navigation.map((item) => {
                 if (item.primary) {
@@ -97,24 +97,25 @@ export default function Header() {
               })}
             </nav>
 
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-1"
+                className="p-1 hover:bg-gray-100"
               >
-                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isMenuOpen ? 
+                  <X className="h-5 w-5 text-black" /> : 
+                  <Menu className="h-5 w-5 text-black" />
+                }
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 shadow-lg animate-in slide-in-from-top-5 duration-200">
-            <div className="px-4 py-3 space-y-1">
+          <div className="md:hidden bg-white border-t-2 border-gray-200 shadow-xl">
+            <div className="px-4 py-4 space-y-2">
               {navigation.map((item) => {
                 if (item.primary) {
                   return (
@@ -124,7 +125,7 @@ export default function Header() {
                         setIsBookingModalOpen(true);
                         setIsMenuOpen(false);
                       }}
-                      className="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 text-sm font-medium"
+                      className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 text-sm font-semibold rounded-lg"
                     >
                       {item.name}
                     </Button>
@@ -142,7 +143,7 @@ export default function Header() {
                         }
                         setIsMenuOpen(false);
                       }}
-                      className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors"
+                      className="block w-full text-left px-4 py-3 text-base font-medium text-gray-900 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors"
                     >
                       {item.name}
                     </button>
@@ -152,8 +153,8 @@ export default function Header() {
                 return (
                   <Link key={item.name} href={item.href}>
                     <span 
-                      className={`block px-3 py-2 text-base font-medium transition-colors hover:text-amber-600 rounded-md ${
-                        location === item.href ? 'text-amber-600 bg-amber-50' : 'text-gray-700 hover:bg-gray-50'
+                      className={`block px-4 py-3 text-base font-medium transition-colors hover:text-amber-600 rounded-lg ${
+                        location === item.href ? 'text-amber-600 bg-amber-50' : 'text-gray-900 hover:bg-gray-50'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -163,14 +164,14 @@ export default function Header() {
                 );
               })}
               
-              <div className="border-t pt-3 mt-3">
-                <div className="flex items-center justify-center space-x-6 px-3 py-2">
+              <div className="border-t-2 border-gray-100 pt-3 mt-3">
+                <div className="flex items-center justify-center space-x-8 px-4 py-2">
                   <a 
                     href="tel:+6281126568690" 
-                    className="flex items-center text-gray-600 hover:text-amber-600 transition-colors"
+                    className="flex items-center text-gray-700 hover:text-amber-600 transition-colors"
                   >
                     <Phone className="h-4 w-4 mr-2" />
-                    <span className="text-sm">Call</span>
+                    <span className="text-sm font-medium">Call</span>
                   </a>
                   
                   <a 
@@ -180,7 +181,7 @@ export default function Header() {
                     className="flex items-center text-green-600 hover:text-green-700 transition-colors"
                   >
                     <MessageCircle className="h-4 w-4 mr-2" />
-                    <span className="text-sm">WhatsApp</span>
+                    <span className="text-sm font-medium">WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -189,7 +190,6 @@ export default function Header() {
         )}
       </header>
 
-      {/* Floating CTA (appears on scroll) */}
       {isScrolled && (
         <div className="fixed bottom-6 right-6 z-40 hidden md:block">
           <Button 
