@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Clock, Users, Star, CheckCircle, MessageCircle } from 'lucide-react';
-import WhatsAppBookingModal from '@/components/WhatsAppBookingModal';
+import { generateGeneralInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 // Import service images
@@ -16,8 +16,6 @@ import thaiImage from '../assets/Thai-Massage_1757317131192.jpg';
 import lymphaticImage from '../assets/lymphatic-drainage-massage_1757317131192.jpg';
 
 export default function Services() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
   const services = [
     {
       id: 1,
@@ -132,7 +130,7 @@ export default function Services() {
               <Button 
                 size="lg" 
                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
-                onClick={() => setIsBookingModalOpen(true)}
+                onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
               >
                 <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Book Treatment Now
@@ -217,7 +215,7 @@ export default function Services() {
                   {/* CTA Button */}
                   <Button 
                     className="w-full bg-amber-600 hover:bg-amber-700 text-white"
-                    onClick={() => setIsBookingModalOpen(true)}
+                    onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                   >
                     Book This Treatment
                   </Button>
@@ -265,11 +263,6 @@ export default function Services() {
       </section>
 
       <Footer />
-
-      <WhatsAppBookingModal 
-        isOpen={isBookingModalOpen} 
-        onClose={() => setIsBookingModalOpen(false)} 
-      />
 
       <SchemaMarkup 
         type="service"

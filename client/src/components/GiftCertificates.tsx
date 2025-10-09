@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Gift, Heart, Calendar, Users, Star } from "lucide-react";
-import WhatsAppBookingModal from "@/components/WhatsAppBookingModal";
+import { generateGeneralInquiryMessage, openWhatsApp } from "@/lib/whatsapp";
 
 const giftPackages = [
   {
@@ -71,8 +70,6 @@ const occasions = [
 ];
 
 export default function GiftCertificates() {
-  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
-
   return (
     <section id="gift-certificates" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-background">
       <div className="container mx-auto px-3 sm:px-4">
@@ -141,7 +138,7 @@ export default function GiftCertificates() {
                 </div>
                 
                 <Button 
-                  onClick={() => setIsWhatsAppModalOpen(true)}
+                  onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                   className="w-full bg-primary hover:bg-accent text-primary-foreground font-semibold"
                   data-testid={`button-gift-${pkg.id}`}
                 >
@@ -242,11 +239,6 @@ export default function GiftCertificates() {
           </div>
         </div>
       </div>
-      
-      <WhatsAppBookingModal 
-        isOpen={isWhatsAppModalOpen}
-        onClose={() => setIsWhatsAppModalOpen(false)}
-      />
     </section>
   );
 }

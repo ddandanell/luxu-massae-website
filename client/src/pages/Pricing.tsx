@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Check, Star, Users, Clock, MapPin, Shield, Award, Heart, MessageCircle, Phone } from 'lucide-react';
-import WhatsAppBookingModal from '@/components/WhatsAppBookingModal';
+import { generateGeneralInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SchemaMarkup from '@/components/SchemaMarkup';
@@ -113,8 +113,6 @@ function formatPrice(price: number): string {
 }
 
 export default function Pricing() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = React.useState(false);
-
   return (
     <>
       <Header />
@@ -220,7 +218,7 @@ export default function Pricing() {
                   
                   <Button 
                     className="w-full bg-amber-600 hover:bg-amber-700 text-sm py-2"
-                    onClick={() => setIsBookingModalOpen(true)}
+                    onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                   >
                     Book This Treatment
                   </Button>
@@ -280,7 +278,7 @@ export default function Pricing() {
                   
                   <Button 
                     className="w-full bg-amber-600 hover:bg-amber-700 text-sm py-2"
-                    onClick={() => setIsBookingModalOpen(true)}
+                    onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                   >
                     Book This Package
                   </Button>
@@ -338,7 +336,7 @@ export default function Pricing() {
                 <Button 
                   size="lg" 
                   className="bg-emerald-600 hover:bg-emerald-700 w-full sm:w-auto px-6 py-3 text-sm sm:text-base"
-                  onClick={() => setIsBookingModalOpen(true)}
+                  onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                 >
                   Book Your Treatment Now
                 </Button>
@@ -380,11 +378,6 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
-      <WhatsAppBookingModal 
-        isOpen={isBookingModalOpen} 
-        onClose={() => setIsBookingModalOpen(false)} 
-      />
     </div>
     
     <Footer />

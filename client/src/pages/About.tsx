@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -15,15 +15,13 @@ import {
   MapPin,
   Phone
 } from 'lucide-react';
-import WhatsAppBookingModal from '@/components/WhatsAppBookingModal';
+import { generateGeneralInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 // Import images
 import massageImage from '../assets/woman-getting-bali-massage-with-all-the-benefits-of-bailnese-massage_1757329093079.jpg';
 
 export default function About() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
   const values = [
     {
       icon: Heart,
@@ -107,7 +105,7 @@ export default function About() {
                 <Button 
                   size="lg" 
                   className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
-                  onClick={() => setIsBookingModalOpen(true)}
+                  onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                 >
                   <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Book Your Treatment
@@ -269,7 +267,7 @@ export default function About() {
             <Button 
               size="lg" 
               className="bg-white text-emerald-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
-              onClick={() => setIsBookingModalOpen(true)}
+              onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
             >
               <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Book Now
@@ -290,11 +288,6 @@ export default function About() {
       </section>
 
       <Footer />
-
-      <WhatsAppBookingModal 
-        isOpen={isBookingModalOpen} 
-        onClose={() => setIsBookingModalOpen(false)} 
-      />
 
       <SchemaMarkup 
         type="organization"

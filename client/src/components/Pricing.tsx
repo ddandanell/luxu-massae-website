@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import BookingModal from "@/components/BookingModal";
+import { generateGeneralInquiryMessage, openWhatsApp } from "@/lib/whatsapp";
 
 const pricingPackages = [
   {
@@ -54,8 +53,6 @@ const pricingPackages = [
 ];
 
 export default function Pricing() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-background">
       <div className="container mx-auto px-3 sm:px-4">
@@ -112,7 +109,7 @@ export default function Pricing() {
               
               <Button 
                 variant={pkg.buttonVariant}
-                onClick={() => setIsBookingModalOpen(true)}
+                onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                 className={`w-full py-2 md:py-3 font-semibold text-sm md:text-base ${
                   pkg.buttonVariant === 'default' 
                     ? 'bg-primary text-primary-foreground hover:bg-accent' 
@@ -135,11 +132,6 @@ export default function Pricing() {
           </p>
         </div>
       </div>
-
-      <BookingModal 
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
     </section>
   );
 }

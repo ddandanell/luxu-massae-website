@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import BookingModal from "@/components/BookingModal";
+import { generateGeneralInquiryMessage, openWhatsApp } from "@/lib/whatsapp";
 import balineseImage from "@assets/Balinese-Massage_1757317131191.jpg";
 import deepTissueImage from "@assets/Deep-Tissue-Massage_1757317131192.jpg";
 import aromatherapyImage from "@assets/Aromatherapy-Massage_1757317131192.jpg";
@@ -91,8 +90,6 @@ const services = [
 ];
 
 export default function Services() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
   return (
     <section id="services" className="py-12 sm:py-16 md:py-20 bg-secondary">
       <div className="container mx-auto px-3 sm:px-4">
@@ -145,7 +142,7 @@ Professional Balinese massage services delivered directly to your accommodation 
                 </div>
                 
                 <Button 
-                  onClick={() => setIsBookingModalOpen(true)}
+                  onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                   className="w-full bg-primary hover:bg-accent text-primary-foreground font-semibold text-sm sm:text-base py-2 sm:py-3"
                   data-testid={`button-book-${service.id}`}
                 >
@@ -156,11 +153,6 @@ Professional Balinese massage services delivered directly to your accommodation 
           ))}
         </div>
       </div>
-      
-      <BookingModal 
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
     </section>
   );
 }

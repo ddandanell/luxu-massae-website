@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, MessageCircle, MapPin } from 'lucide-react';
-import WhatsAppBookingModal from './WhatsAppBookingModal';
+import { generateGeneralInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 
 export default function Header() {
   const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -58,7 +57,7 @@ export default function Header() {
                   return (
                     <Button 
                       key={item.name}
-                      onClick={() => setIsBookingModalOpen(true)}
+                      onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
                       className="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 text-sm"
                     >
                       {item.name}
@@ -122,7 +121,7 @@ export default function Header() {
                     <Button
                       key={item.name}
                       onClick={() => {
-                        setIsBookingModalOpen(true);
+                        openWhatsApp(generateGeneralInquiryMessage());
                         setIsMenuOpen(false);
                       }}
                       className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 text-sm font-semibold rounded-lg"
@@ -193,7 +192,7 @@ export default function Header() {
       {isScrolled && (
         <div className="fixed bottom-6 right-6 z-40 hidden md:block">
           <Button 
-            onClick={() => setIsBookingModalOpen(true)}
+            onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
             size="lg"
             className="bg-amber-600 hover:bg-amber-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
           >
@@ -202,11 +201,6 @@ export default function Header() {
           </Button>
         </div>
       )}
-
-      <WhatsAppBookingModal 
-        isOpen={isBookingModalOpen} 
-        onClose={() => setIsBookingModalOpen(false)} 
-      />
     </>
   );
 }

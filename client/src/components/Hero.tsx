@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Clock } from "lucide-react";
 import spaImage from "@assets/60363521082_1757316327941.webp";
-import BookingModal from "@/components/BookingModal";
+import { generateGeneralInquiryMessage, openWhatsApp } from "@/lib/whatsapp";
 
 export default function Hero() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
   const scrollToServices = () => {
     const element = document.getElementById('services');
     if (element) {
@@ -15,7 +12,7 @@ export default function Hero() {
   };
 
   const handleBookExperience = () => {
-    setIsBookingModalOpen(true);
+    openWhatsApp(generateGeneralInquiryMessage());
   };
 
   return (
@@ -84,11 +81,6 @@ export default function Hero() {
           
         </div>
       </div>
-      
-      <BookingModal 
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
     </section>
   );
 }

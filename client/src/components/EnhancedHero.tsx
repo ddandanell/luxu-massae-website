@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Star, MapPin, Clock, Users, MessageCircle, Phone, CheckCircle } from 'lucide-react';
-import WhatsAppBookingModal from './WhatsAppBookingModal';
+import { generateGeneralInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import TrustBadges from './TrustBadges';
 import massageHeroImage from '../assets/massage-therapy-hero.jpg';
 
 export default function EnhancedHero() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const stats = [
     { icon: Users, number: '500+', label: 'Happy Clients' },
@@ -79,7 +78,7 @@ export default function EnhancedHero() {
               <Button 
                 size="lg" 
                 className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all"
-                onClick={() => setIsBookingModalOpen(true)}
+                onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Book Treatment Now
@@ -162,11 +161,6 @@ export default function EnhancedHero() {
           </div>
         </div>
       </div>
-
-      <WhatsAppBookingModal 
-        isOpen={isBookingModalOpen} 
-        onClose={() => setIsBookingModalOpen(false)} 
-      />
     </section>
   );
 }
