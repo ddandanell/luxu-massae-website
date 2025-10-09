@@ -166,7 +166,7 @@ export default function Header() {
               <div className="border-t-2 border-gray-100 pt-3 mt-3">
                 <div className="flex items-center justify-center space-x-8 px-4 py-2">
                   <a 
-                    href="tel:+6281126568690" 
+                    href="tel:+628112656869" 
                     className="flex items-center text-gray-700 hover:text-amber-600 transition-colors"
                   >
                     <Phone className="h-4 w-4 mr-2" />
@@ -174,7 +174,7 @@ export default function Header() {
                   </a>
                   
                   <a 
-                    href="https://wa.me/6281126568690" 
+                    href="https://wa.me/628112656869" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center text-green-600 hover:text-green-700 transition-colors"

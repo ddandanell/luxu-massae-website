@@ -136,7 +136,7 @@ export default function Services() {
                 Book Treatment Now
               </Button>
               
-              <a href="https://wa.me/6281126568690" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a href="https://wa.me/628112656869" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full">
                   WhatsApp Consultation
                 </Button>
@@ -264,19 +264,19 @@ export default function Services() {
 
       <Footer />
 
-      <SchemaMarkup 
-        type="service"
-        data={{
-          name: "Home Massage Ubud - Professional Massage Services",
-          description: "Authentic Balinese massage treatments delivered to your villa in Ubud. Professional therapists, premium equipment, complete setup included.",
-          provider: {
-            name: "Home Massage Ubud",
-            telephone: "+62-811-2656-8690"
-          },
-          areaServed: "Ubud, Bali",
-          serviceType: "Mobile Massage Therapy"
-        }}
-      />
+          <SchemaMarkup 
+            type="service"
+            data={{
+              name: "Home Massage Ubud - Professional Massage Services",
+              description: "Authentic Balinese massage treatments delivered to your villa in Ubud. Professional therapists, premium equipment, complete setup included.",
+              provider: {
+                name: "Home Massage Ubud",
+                telephone: "+62 811-2656-869"
+              },
+              areaServed: "Ubud, Bali",
+              serviceType: "Mobile Massage Therapy"
+            }}
+          />
     </>
   );
 }

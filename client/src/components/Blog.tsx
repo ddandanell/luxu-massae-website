@@ -611,7 +611,7 @@ export default function Blog() {
                 </Button>
                 
                 <a 
-                  href="https://wa.me/6281126568690" 
+                  href="https://wa.me/628112656869" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

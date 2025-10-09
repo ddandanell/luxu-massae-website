@@ -71,7 +71,7 @@ export function generateQuickBookingMessage(treatment: string, date: string, tim
 }
 
 export function generateGeneralInquiryMessage(): string {
-  return "🌸 Hi Ubud Villa Massage! I'm interested in your in-villa massage services in Ubud. Could you please share more information about your treatments and availability? Thank you! 🙏";
+  return "Hi! I would like to book some massages to my villa.";
 }
 
 export function openWhatsApp(message: string): void {

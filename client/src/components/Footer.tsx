@@ -27,7 +27,7 @@ const footerSections = [
       { name: 'Pricing', href: '/pricing' },
       { name: 'Service Areas', href: '/contact' },
       { name: 'Contact Us', href: '/contact' },
-      { name: 'WhatsApp Book', href: 'https://wa.me/6281126568690', external: true }
+      { name: 'WhatsApp Book', href: 'https://wa.me/628112656869', external: true }
     ]
   },
   {

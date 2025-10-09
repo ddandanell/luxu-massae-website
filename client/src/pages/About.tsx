@@ -111,7 +111,7 @@ export default function About() {
                   Book Your Treatment
                 </Button>
                 
-                <a href="https://wa.me/6281126568690" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <a href="https://wa.me/628112656869" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                   <Button size="lg" variant="outline" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full">
                     <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                     Contact Us
@@ -273,7 +273,7 @@ export default function About() {
               Book Now
             </Button>
             
-            <a href="https://wa.me/6281126568690" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://wa.me/628112656869" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
                 variant="outline" 
@@ -295,7 +295,7 @@ export default function About() {
           name: "Home Massage Ubud",
           description: "Professional mobile massage therapy service in Ubud, Bali. Authentic Balinese healing treatments delivered to your accommodation.",
           url: "https://homemassageubud.com/about",
-          telephone: "+62-811-2656-8690",
+          telephone: "+62 811-2656-869",
           address: {
             streetAddress: "Ubud Area",
             addressLocality: "Ubud",

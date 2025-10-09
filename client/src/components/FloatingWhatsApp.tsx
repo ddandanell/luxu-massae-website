@@ -15,9 +15,9 @@ export default function FloatingWhatsApp() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const phoneNumber = '6281126568690';
+  const phoneNumber = '628112656869';
   const message = encodeURIComponent(
-    'Hi! I would like to book a massage treatment. Could you please help me with availability and pricing?'
+    'Hi! I would like to book some massages to my villa.'
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
@@ -68,9 +68,9 @@ export function FloatingWhatsAppDesktop() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isDismissed]);
 
-  const phoneNumber = '6281126568690';
+  const phoneNumber = '628112656869';
   const message = encodeURIComponent(
-    'Hello! I am interested in booking a massage treatment at my villa in Ubud. Could you please provide information about availability and services?'
+    'Hi! I would like to book some massages to my villa.'
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

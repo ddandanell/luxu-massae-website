@@ -1,78 +1,9 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, MessageCircle, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { generateBookingMessage, openWhatsApp } from "@/lib/whatsapp";
+import { generateGeneralInquiryMessage, openWhatsApp } from "@/lib/whatsapp";
 
 export default function Contact() {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    villa: '',
-    date: '',
-    time: '',
-    people: '',
-    hours: ''
-  });
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.firstName || !formData.phone) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in your name and phone number.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Generate WhatsApp message and open
-    const message = generateBookingMessage({
-      people: formData.people,
-      hours: formData.hours,
-      date: formData.date,
-      time: formData.time,
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      villa: formData.villa
-    });
-    
-    openWhatsApp(message);
-
-    // Show success message
-    toast({
-      title: "Opening WhatsApp!",
-      description: "Your booking details have been prepared. Complete your booking via WhatsApp.",
-      variant: "default"
-    });
-
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      phone: '',
-      villa: '',
-      date: '',
-      time: '',
-      people: '',
-      hours: ''
-    });
-  };
 
   const contactInfo = [
     {
@@ -138,104 +69,43 @@ export default function Contact() {
         </div>
         
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16">
-          {/* Booking Form */}
-          <Card className="bg-card rounded-2xl border-border" data-testid="booking-form-card">
+          {/* WhatsApp Booking */}
+          <Card className="bg-card rounded-2xl border-border" data-testid="booking-card">
             <CardContent className="p-3 sm:p-4 md:p-6 lg:p-8">
-              <h3 className="serif text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-3 sm:mb-4 md:mb-6 text-primary" data-testid="booking-form-title">
-                Quick Booking Form
+              <h3 className="serif text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-3 sm:mb-4 md:mb-6 text-primary" data-testid="booking-title">
+                Book Your Massage
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
-                  <Input 
-                    placeholder="First Name" 
-                    value={formData.firstName}
-                    onChange={(e) => handleInputChange('firstName', e.target.value)}
-                    className="bg-input border-border text-foreground"
-                    data-testid="input-first-name"
-                  />
-                  <Input 
-                    placeholder="Last Name" 
-                    value={formData.lastName}
-                    onChange={(e) => handleInputChange('lastName', e.target.value)}
-                    className="bg-input border-border text-foreground"
-                    data-testid="input-last-name"
-                  />
-                </div>
-                
-                <Input 
-                  type="tel" 
-                  placeholder="WhatsApp Number" 
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange('phone', e.target.value)}
-                  className="bg-input border-border text-foreground"
-                  data-testid="input-phone"
-                />
-                
-                <Input 
-                  placeholder="Address in Ubud" 
-                  value={formData.villa}
-                  onChange={(e) => handleInputChange('villa', e.target.value)}
-                  className="bg-input border-border text-foreground"
-                  data-testid="input-villa"
-                />
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                  <Input 
-                    type="date" 
-                    value={formData.date}
-                    onChange={(e) => handleInputChange('date', e.target.value)}
-                    className="bg-input border-border text-foreground"
-                    data-testid="input-date"
-                  />
-                  <Select value={formData.time} onValueChange={(value) => handleInputChange('time', value)}>
-                    <SelectTrigger className="bg-input border-border text-foreground" data-testid="select-time">
-                      <SelectValue placeholder="Preferred Time" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="morning">Morning (9:00 - 12:00)</SelectItem>
-                      <SelectItem value="afternoon">Afternoon (13:00 - 17:00)</SelectItem>
-                      <SelectItem value="evening">Evening (18:00 - 21:00)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-3 md:gap-4">
-                  <Select value={formData.people} onValueChange={(value) => handleInputChange('people', value)}>
-                    <SelectTrigger className="bg-input border-border text-foreground" data-testid="select-people">
-                      <SelectValue placeholder="Number of people" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1 person</SelectItem>
-                      <SelectItem value="2">2 people</SelectItem>
-                      <SelectItem value="3">3 people</SelectItem>
-                      <SelectItem value="4">4 people</SelectItem>
-                      <SelectItem value="5+">5+ people</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  
-                  <Select value={formData.hours} onValueChange={(value) => handleInputChange('hours', value)}>
-                    <SelectTrigger className="bg-input border-border text-foreground" data-testid="select-hours">
-                      <SelectValue placeholder="Hours of massage" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1 hour</SelectItem>
-                      <SelectItem value="1.5">1.5 hours</SelectItem>
-                      <SelectItem value="2">2 hours</SelectItem>
-                      <SelectItem value="2.5">2.5 hours</SelectItem>
-                      <SelectItem value="3">3 hours</SelectItem>
-                      <SelectItem value="3+">3+ hours</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
+              <p className="text-sm md:text-base text-muted-foreground mb-6" data-testid="booking-description">
+                Contact us directly via WhatsApp for instant booking and personalized service.
+              </p>
+
+              <div className="space-y-3 md:space-y-4">
                 <Button 
-                  type="submit" 
-                  className="w-full bg-primary text-primary-foreground py-2 md:py-3 lg:py-4 hover:bg-accent golden-glow font-semibold text-sm md:text-base"
-                  data-testid="button-send-booking"
+                  onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
+                  className="w-full bg-primary text-primary-foreground py-3 md:py-4 hover:bg-accent golden-glow font-semibold text-base md:text-lg"
+                  data-testid="button-whatsapp"
                 >
+                  <MessageCircle className="mr-2 h-5 w-5" />
                   Book via WhatsApp
                 </Button>
-              </form>
+                
+                <a href="tel:+628112656869" className="block">
+                  <Button 
+                    variant="outline"
+                    className="w-full border-2 border-primary text-primary hover:bg-secondary py-3 md:py-4 font-semibold text-base md:text-lg"
+                    data-testid="button-call"
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Now
+                  </Button>
+                </a>
+              </div>
+              
+              <div className="mt-6 p-4 bg-secondary rounded-lg">
+                <p className="text-sm text-center text-muted-foreground">
+                  <strong>WhatsApp:</strong> +62 811-2656-869
+                </p>
+              </div>
             </CardContent>
           </Card>
           

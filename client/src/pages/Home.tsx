@@ -22,7 +22,7 @@ export default function Home() {
   const faqData = [
     {
       question: "How do I book a massage in Ubud?",
-      answer: "Booking is simple! Contact us via WhatsApp at +62 811-2656-869, call directly, or email hello@homemassageubud.com. We recommend booking 24-48 hours in advance."
+      answer: "Booking is simple! Contact us via WhatsApp at +62 811-2656-869. We recommend booking 24-48 hours in advance for best availability."
     },
     {
       question: "What areas do you serve in Ubud?",

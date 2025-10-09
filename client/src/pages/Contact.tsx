@@ -1,80 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { 
   MessageCircle, 
   Phone, 
   MapPin, 
   Clock, 
-  Send,
   CheckCircle
 } from 'lucide-react';
-import WhatsAppBookingModal from '@/components/WhatsAppBookingModal';
-import { generateBookingMessage } from '@/lib/whatsapp';
+import { generateGeneralInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export default function Contact() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    location: '',
-    people: '1',
-    hours: '1',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleWhatsAppSubmit = () => {
-    const message = generateBookingMessage({
-      people: formData.people,
-      hours: formData.hours,
-      firstName: formData.name,
-      villa: formData.location,
-      message: formData.message
-    });
-    const whatsappUrl = `https://wa.me/6281126568690?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      location: '',
-      people: '1',
-      hours: '1',
-      message: ''
-    });
-  };
-
   const contactInfo = [
     {
       icon: Phone,
       title: 'Phone & WhatsApp',
-      details: '+62 811 2656 8690',
+      details: '+62 811-2656-869',
       description: 'Available 24/7 for bookings',
-      action: () => window.open('https://wa.me/6281126568690', '_blank')
+      action: () => openWhatsApp(generateGeneralInquiryMessage())
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp Chat',
       details: 'Instant Response',
       description: 'Quick booking and consultation',
-      action: () => window.open('https://wa.me/6281126568690', '_blank')
+      action: () => openWhatsApp(generateGeneralInquiryMessage())
     },
     {
       icon: MapPin,
@@ -150,127 +103,42 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Form and Info - Mobile Optimized */}
+      {/* Contact Buttons and Info - Mobile Optimized */}
       <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             
-            {/* Contact Form */}
+            {/* WhatsApp Booking */}
             <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Send Us a Message</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Book Your Massage</h2>
               <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
-                Fill out the form below and we'll respond via WhatsApp with availability and pricing.
+                Contact us directly via WhatsApp for instant booking and personalized service. Our team is ready to help you!
               </p>
 
-              <div className="space-y-4 sm:space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name" className="text-gray-700 text-sm sm:text-base">Full Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your full name"
-                      className="mt-1 text-sm sm:text-base"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="phone" className="text-gray-700 text-sm sm:text-base">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+62 xxx xxx xxxx"
-                      className="mt-1 text-sm sm:text-base"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="location" className="text-gray-700 text-sm sm:text-base">Location/Accommodation *</Label>
-                  <Input
-                    id="location"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleInputChange}
-                    placeholder="Hotel/Villa name and area"
-                    className="mt-1 text-sm sm:text-base"
-                    required
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="people" className="text-gray-700 text-sm sm:text-base">Number of People</Label>
-                    <select
-                      id="people"
-                      name="people"
-                      value={formData.people}
-                      onChange={handleInputChange}
-                      className="mt-1 w-full p-2 sm:p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                    >
-                      <option value="1">1 Person</option>
-                      <option value="2">2 People</option>
-                      <option value="3">3 People</option>
-                      <option value="4">4 People</option>
-                      <option value="5">5+ People</option>
-                    </select>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="hours" className="text-gray-700 text-sm sm:text-base">Hours of Massage</Label>
-                    <select
-                      id="hours"
-                      name="hours"
-                      value={formData.hours}
-                      onChange={handleInputChange}
-                      className="mt-1 w-full p-2 sm:p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                    >
-                      <option value="1">1 Hour</option>
-                      <option value="1.5">1.5 Hours</option>
-                      <option value="2">2 Hours</option>
-                      <option value="2.5">2.5 Hours</option>
-                      <option value="3">3+ Hours</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="text-gray-700 text-sm sm:text-base">Additional Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Any specific requests or questions..."
-                    className="mt-1 text-sm sm:text-base"
-                    rows={4}
-                  />
-                </div>
-
-                <div className="space-y-3">
+              <div className="space-y-4">
+                <Button 
+                  onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white py-4 sm:py-6 text-base sm:text-xl font-semibold"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
+                  Book via WhatsApp
+                </Button>
+                
+                <a href="tel:+628112656869" className="block">
                   <Button 
-                    onClick={handleWhatsAppSubmit}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white py-2 sm:py-3 text-base sm:text-lg font-semibold"
-                    disabled={!formData.name || !formData.phone || !formData.location}
+                    variant="outline"
+                    className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 py-4 sm:py-6 text-base sm:text-xl font-semibold"
                   >
-                    <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                    Send via WhatsApp
+                    <Phone className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
+                    Call Now
                   </Button>
-                  
-                  <Button 
-                    onClick={() => setIsBookingModalOpen(true)}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 sm:py-3 text-base sm:text-lg font-semibold"
-                  >
-                    <Send className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                    Quick Booking Modal
-                  </Button>
-                </div>
+                </a>
+              </div>
+              
+              <div className="mt-8 p-4 bg-green-50 rounded-lg">
+                <p className="text-sm text-gray-700 text-center">
+                  <strong>WhatsApp Number:</strong> +62 811-2656-869
+                </p>
               </div>
             </div>
 
@@ -296,27 +164,25 @@ export default function Contact() {
                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Quick Contact</h2>
                 
                 <div className="space-y-3 sm:space-y-4">
-                  <a 
-                    href="https://wa.me/6281126568690" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
+                  <button 
+                    onClick={() => openWhatsApp(generateGeneralInquiryMessage())}
+                    className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors w-full"
                   >
                     <MessageCircle className="h-6 w-6 sm:h-8 sm:w-8 text-green-600" />
                     <div>
                       <p className="font-semibold text-gray-900 text-sm sm:text-base">WhatsApp</p>
-                      <p className="text-xs sm:text-sm text-gray-600">+62 811 2656 8690</p>
+                      <p className="text-xs sm:text-sm text-gray-600">+62 811-2656-869</p>
                     </div>
-                  </a>
+                  </button>
                   
                   <a 
-                    href="tel:+6281126568690"
+                    href="tel:+628112656869"
                     className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
                   >
                     <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
                     <div>
                       <p className="font-semibold text-gray-900 text-sm sm:text-base">Phone Call</p>
-                      <p className="text-xs sm:text-sm text-gray-600">+62 811 2656 8690</p>
+                      <p className="text-xs sm:text-sm text-gray-600">+62 811-2656-869</p>
                     </div>
                   </a>
                 </div>
@@ -339,18 +205,13 @@ export default function Contact() {
 
       <Footer />
 
-      <WhatsAppBookingModal 
-        isOpen={isBookingModalOpen} 
-        onClose={() => setIsBookingModalOpen(false)} 
-      />
-
       <SchemaMarkup 
         type="organization"
         data={{
           name: "Home Massage Ubud",
           description: "Contact Home Massage Ubud for professional mobile massage services in Ubud, Bali.",
           url: "https://homemassageubud.com/contact",
-          telephone: "+62-811-2656-8690"
+          telephone: "+62 811-2656-869"
         }}
       />
     </>

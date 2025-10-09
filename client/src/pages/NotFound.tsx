@@ -50,7 +50,7 @@ export default function NotFound() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="https://wa.me/6281126568690" 
+                href="https://wa.me/628112656869" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -60,7 +60,7 @@ export default function NotFound() {
                 </Button>
               </a>
               
-              <a href="tel:+6281126568690">
+              <a href="tel:+628112656869">
                 <Button variant="outline" size="sm">
                   <Phone className="mr-2 h-4 w-4" />
                   Call Us

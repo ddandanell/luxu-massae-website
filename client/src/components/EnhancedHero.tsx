@@ -83,14 +83,14 @@ export default function EnhancedHero() {
               </Button>
               
               <div className="flex gap-2">
-                <a href="https://wa.me/6281126568690" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/628112656869" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" className="px-6 py-4">
                     <MessageCircle className="mr-2 h-5 w-5 text-green-600" />
                     WhatsApp
                   </Button>
                 </a>
                 
-                <a href="tel:+6281126568690">
+                <a href="tel:+628112656869">
                   <Button size="lg" variant="outline" className="px-6 py-4">
                     <Phone className="mr-2 h-5 w-5" />
                     Call

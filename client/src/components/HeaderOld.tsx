@@ -67,12 +67,12 @@ export default function Header() {
 
             {/* Desktop CTA Buttons */}
             <div className="hidden md:flex items-center space-x-3">
-              <a href="tel:+6281126568690" className="text-gray-600 hover:text-amber-600 transition-colors">
+              <a href="tel:+628112656869" className="text-gray-600 hover:text-amber-600 transition-colors">
                 <Phone className="h-5 w-5" />
               </a>
               
               <a 
-                href="https://wa.me/6281126568690" 
+                href="https://wa.me/628112656869" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-green-600 hover:text-green-700 transition-colors"
@@ -120,13 +120,13 @@ export default function Header() {
               
               <div className="border-t pt-4 mt-4">
                 <div className="flex items-center space-x-4 px-3 py-2">
-                  <a href="tel:+6281126568690" className="flex items-center text-gray-600">
+                  <a href="tel:+628112656869" className="flex items-center text-gray-600">
                     <Phone className="h-4 w-4 mr-2" />
                     <span className="text-sm">Call Us</span>
                   </a>
                   
                   <a 
-                    href="https://wa.me/6281126568690" 
+                    href="https://wa.me/628112656869" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center text-green-600"

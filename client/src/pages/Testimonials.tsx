@@ -279,7 +279,7 @@ export default function Testimonials() {
                 </Button>
                 
                 <a 
-                  href="https://wa.me/6281126568690" 
+                  href="https://wa.me/628112656869" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
@@ -310,7 +310,7 @@ export default function Testimonials() {
         description: "Real client testimonials and reviews for Home Massage Ubud mobile massage services.",
         provider: {
           name: "Home Massage Ubud",
-          telephone: "+62-811-2656-8690"
+          telephone: "+62 811-2656-869"
         }
       }}
     />

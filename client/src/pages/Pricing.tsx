@@ -358,7 +358,7 @@ export default function Pricing() {
           
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a 
-              href="https://wa.me/6281126568690" 
+              href="https://wa.me/628112656869" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full sm:w-auto"
@@ -369,7 +369,7 @@ export default function Pricing() {
               </Button>
             </a>
             
-            <a href="tel:+6281126568690" className="w-full sm:w-auto">
+            <a href="tel:+628112656869" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="w-full sm:w-auto px-4 sm:px-6 py-3 text-sm sm:text-base">
                 <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Call for Quote
@@ -389,7 +389,7 @@ export default function Pricing() {
         description: "Transparent pricing for professional mobile massage services in Ubud, Bali. Quality treatments at fair prices.",
         provider: {
           name: "Home Massage Ubud",
-          telephone: "+62-811-2656-8690"
+          telephone: "+62 811-2656-869"
         },
         areaServed: "Ubud, Bali"
       }}
