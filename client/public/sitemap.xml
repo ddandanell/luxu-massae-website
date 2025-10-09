@@ -4,50 +4,56 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://homemassageubud.com/</loc>
-    <lastmod>2025-09-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://homemassageubud.com/services</loc>
-    <lastmod>2025-09-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://homemassageubud.com/about</loc>
-    <lastmod>2025-09-08</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://homemassageubud.com/contact</loc>
-    <lastmod>2025-09-08</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://homemassageubud.com/blog</loc>
-    <lastmod>2025-09-08</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://homemassageubud.com/faq</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://homemassageubud.com/pricing</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://homemassageubud.com/testimonials</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homemassageubud.com/sustainability</loc>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://homemassageubud.com/pricing</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://homemassageubud.com/villa-partnerships</loc>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://homemassageubud.com/testimonials</loc>
-    <lastmod>2025-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -47,20 +47,18 @@ export default function EnhancedHero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Professional 
               <span className="text-amber-600 relative">
-                {' '}Massage Therapy
+                {' '}Ubud Massage
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-amber-200" viewBox="0 0 100 12" preserveAspectRatio="none">
                   <path d="M0,8 Q50,2 100,8" stroke="currentColor" strokeWidth="3" fill="none"/>
                 </svg>
               </span>
               <br />
-              <span className="text-emerald-600">at Your Villa</span>
+              <span className="text-emerald-600">Delivered to Your Villa</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Experience authentic Balinese healing arts and therapeutic treatments 
-              delivered to your private accommodation in Ubud. Licensed therapists, 
-              premium equipment, complete setup included.
+              Experience authentic Ubud massage services with traditional Balinese healing arts delivered to your private accommodation. Best massage in Ubud by licensed therapists with premium equipment, complete setup included at your villa.
             </p>
 
             {/* Benefits List */}

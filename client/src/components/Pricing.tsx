@@ -58,11 +58,10 @@ export default function Pricing() {
       <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 px-2 sm:px-0" data-testid="pricing-title">
-            Pricing and Packages: Affordable Luxury Home Massage Ubud
+            Ubud Massage Prices | Affordable Massage Ubud Packages
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-2 sm:px-4" data-testid="pricing-description">
-            Transparent, competitive pricing for premium spa services. All treatments include consultation, 
-            premium organic products, and post-treatment refreshments.
+            Transparent pricing for professional Ubud massage services. Best value massage in Ubud with competitive rates. All home massage Ubud treatments include consultation, premium organic products, therapist travel, and complete setup at your villa.
           </p>
         </div>
         

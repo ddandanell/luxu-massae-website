@@ -12,9 +12,9 @@ import hotStoneImage from "@assets/woman-getting-bali-massage-with-all-the-benef
 const services = [
   {
     id: 'traditional-balinese',
-    name: 'Traditional Balinese Massage',
+    name: 'Traditional Balinese Massage Ubud',
     image: balineseImage,
-    description: 'Traditional full-body massage combining palm pressure, acupressure, and stretching with aromatic oils. Perfect for stress relief, muscle tension release, and overall relaxation.',
+    description: 'Authentic Balinese massage Ubud - traditional full-body massage combining palm pressure, acupressure, and stretching with aromatic oils. The most popular massage in Ubud for stress relief, muscle tension release, and deep relaxation at your villa.',
     pricing: [
       { duration: '60 Min', price: 'IDR 350K' },
       { duration: '90 Min', price: 'IDR 500K' },
@@ -23,9 +23,9 @@ const services = [
   },
   {
     id: 'deep-tissue',
-    name: 'Deep Tissue Massage',
+    name: 'Deep Tissue Massage Ubud',
     image: deepTissueImage,
-    description: 'Intensive treatment targeting chronic muscle tension and deep knots using firm pressure and specialized techniques. Ideal for sports recovery, chronic pain, and work-related tension.',
+    description: 'Professional deep tissue massage Ubud - intensive treatment targeting chronic muscle tension and deep knots using firm pressure. Best therapeutic massage Ubud for sports recovery, chronic pain relief, and work-related tension at your villa.',
     pricing: [
       { duration: '60 Min', price: 'IDR 400K' },
       { duration: '90 Min', price: 'IDR 550K' },
@@ -34,9 +34,9 @@ const services = [
   },
   {
     id: 'aromatherapy',
-    name: 'Aromatherapy Massage',
+    name: 'Aromatherapy Massage Ubud',
     image: aromatherapyImage,
-    description: 'Relaxing full-body massage using premium essential oils like lavender, lemongrass, or eucalyptus. Light to medium pressure promotes deep relaxation and better sleep.',
+    description: 'Relaxing aromatherapy massage Ubud - full-body massage using premium essential oils like lavender, lemongrass, eucalyptus. Popular wellness massage in Ubud with light to medium pressure for deep relaxation and better sleep.',
     pricing: [
       { duration: '60 Min', price: 'IDR 350K' },
       { duration: '90 Min', price: 'IDR 500K' },
@@ -45,9 +45,9 @@ const services = [
   },
   {
     id: 'lymphatic-drainage',
-    name: 'Lymphatic Drainage Massage',
+    name: 'Lymphatic Drainage Massage Ubud',
     image: lymphaticImage,
-    description: 'Gentle rhythmic massage that stimulates lymphatic drainage to reduce swelling and boost immunity. Perfect for post-flight recovery and detox support.',
+    description: 'Specialized lymphatic drainage massage Ubud - gentle rhythmic massage that stimulates lymphatic system to reduce swelling and boost immunity. Best detox massage in Ubud, perfect for post-flight recovery at your villa.',
     pricing: [
       { duration: '60 Min', price: 'IDR 450K' },
       { duration: '90 Min', price: 'IDR 650K' },
@@ -56,9 +56,9 @@ const services = [
   },
   {
     id: 'thai-massage',
-    name: 'Thai Massage',
+    name: 'Thai Massage Ubud',
     image: thaiImage,
-    description: 'Energizing treatment combining yoga-like stretches with pressure along energy lines. Performed fully clothed, it improves flexibility and relieves stiffness. Great after hiking or long sitting.',
+    description: 'Authentic Thai massage Ubud - energizing treatment combining yoga-like stretches with pressure along energy lines. Traditional massage in Ubud performed fully clothed, improves flexibility and relieves stiffness. Great after hiking or yoga.',
     pricing: [
       { duration: '60 Min', price: 'IDR 450K' },
       { duration: '90 Min', price: 'IDR 650K' },
@@ -67,9 +67,9 @@ const services = [
   },
   {
     id: 'four-hands',
-    name: 'Four Hands Massage',
+    name: 'Four Hands Massage Ubud',
     image: fourHandsImage,
-    description: 'Luxury treatment with two synchronized therapists working together for complete body coverage. Creates deep relaxation and is perfect for special occasions or ultimate indulgence.',
+    description: 'Luxury four hands massage Ubud - premium couples massage with two synchronized therapists working together. Ultimate relaxation massage in Ubud for complete body coverage, perfect for special occasions or romantic couples massage Ubud experience.',
     pricing: [
       { duration: '60 Min', price: 'IDR 600K' },
       { duration: '90 Min', price: 'IDR 850K' },
@@ -78,9 +78,9 @@ const services = [
   },
   {
     id: 'hot-stone',
-    name: 'Hot Stone Massage',
+    name: 'Hot Stone Massage Ubud',
     image: hotStoneImage,
-    description: 'Therapeutic massage using smooth heated volcanic stones placed on key points of the body. The warmth penetrates deep into muscles, releasing tension and promoting profound relaxation. Perfect for muscle stiffness and stress relief.',
+    description: 'Healing hot stone massage Ubud - therapeutic massage using smooth heated volcanic stones placed on key points. The warmth penetrates deep into muscles for ultimate relaxation massage Ubud. Perfect for muscle stiffness and stress relief at your villa.',
     pricing: [
       { duration: '60 Min', price: 'IDR 500K' },
       { duration: '90 Min', price: 'IDR 700K' },
@@ -95,10 +95,10 @@ export default function Services() {
       <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 px-2 sm:px-0" data-testid="services-title">
-            Professional Massage Services Delivered to Your Villa
+            Ubud Massage Services | Professional In-Villa Massage Ubud
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-2 sm:px-4" data-testid="services-description">
-Professional Balinese massage services delivered directly to your accommodation in Ubud. Choose from traditional healing treatments to modern therapeutic techniques, all performed by certified therapists in the comfort of your villa.
+Discover the best massage Ubud offers with our professional mobile massage services. From traditional Balinese massage Ubud to deep tissue massage Ubud, all treatments delivered to your villa. Experience authentic massage in Ubud performed by certified therapists with premium Ubud massage therapy techniques.
           </p>
           
           {/* English Communication Badge */}
@@ -115,7 +115,7 @@ Professional Balinese massage services delivered directly to your accommodation 
             <Card key={service.id} className="bg-card rounded-2xl overflow-hidden hover-scale border-border" data-testid={`service-card-${service.id}`}>
               <img 
                 src={service.image}
-                alt={`${service.name} - authentic Balinese therapeutic treatment performed by certified healing practitioners using traditional techniques and premium organic products in private villa accommodation Ubud`} 
+                alt={`${service.name} - best massage Ubud, professional ${service.name.toLowerCase()} delivered to your villa in Ubud Bali by certified therapists, authentic Balinese healing treatment, mobile massage Ubud services`} 
                 className="w-full h-40 sm:h-48 md:h-56 object-cover object-center"
                 loading="lazy"
                 width="400"

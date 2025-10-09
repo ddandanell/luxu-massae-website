@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img 
           src={spaImage}
-          alt="Premium Balinese massage therapy session in luxury villa setting - authentic healing treatments delivered to private accommodations in Ubud Bali"
+          alt="Ubud massage - best massage Ubud Bali, professional in-villa massage services, traditional Balinese massage therapy delivered to your villa in Ubud, home massage Ubud by certified therapists"
           className="w-full h-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
@@ -37,12 +37,12 @@ export default function Hero() {
           
           {/* Main Heading */}
           <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2 sm:px-0">
-            Luxury Massage in Ubud – Delivered to Your Villa
+            Ubud Massage | Best In-Villa Massage Ubud Services
           </h1>
           
           {/* Description */}
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
-            From 7 AM to 10 PM, our certified Balinese therapists bring world-class wellness directly to your villa, hotel, or home. No spa traffic, no stress—just pure relaxation in the privacy of your own space.
+            Professional Ubud massage services from 9 AM to 9 PM. Our certified Balinese massage therapists deliver premium massage Ubud treatments directly to your villa, hotel, or accommodation. Experience the best home massage Ubud offers – traditional Balinese, deep tissue, aromatherapy massage in your private space.
           </p>
           
           

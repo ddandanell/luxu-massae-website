@@ -118,10 +118,10 @@ export default function Contact() {
       <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 px-2 sm:px-0" data-testid="contact-title">
-            Book Now: Schedule Your Premium In-Residence Therapeutic Wellness Experience
+            Book Ubud Massage | Contact Best Massage Ubud Services
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto px-2 sm:px-4" data-testid="contact-description">
-            Ready to experience authentic Balinese healing arts, traditional therapeutic treatments, and transformative wellness sessions in your private accommodation, luxury residence, vacation rental, or exclusive retreat? Contact our professional booking team to schedule your personalized healing journey, therapeutic wellness experience, and customized spa treatments in the spiritual heart of Ubud, Bali. Available for immediate booking, advanced reservations, same-day appointments, group sessions, couples treatments, and specialized therapeutic consultations.
+            Ready to book the best Ubud massage? Contact our professional massage Ubud booking team for authentic Balinese massage, traditional therapeutic treatments, and transformative wellness in your villa. Schedule your home massage Ubud experience - available for in-villa massage Ubud, couples massage Ubud, same-day massage appointments, and all types of massage in Ubud delivered to your location. Experience why we're the top-rated massage Ubud service in Bali.
           </p>
           
           {/* English Communication Guarantee */}
